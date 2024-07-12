@@ -33,18 +33,11 @@ public class Program {
             System.out.print("Check-out dare (dd/MM/yyyy): ");
             checkOut = sdf.parse(sc.next());
 
-            res.UpdateDates(checkin,checkOut);
-            System.out.print("Reservation: " + res);
-
-            Date now = new Date();
-            if(checkin.before(now) || checkOut.before(now)){
-                System.out.println("Errojmfsdhfedo");
+            String error = res.UpdateDates(checkin,checkOut);
+            if(error != null){
+                System.out.print("Error in reservation");
             }
-            else if(!checkOut.after(checkin)){
-                System.out.println("Errojmfsdhfedo");
-            }
-            else{
-                res.UpdateDates(checkin,checkOut);
+            else {
                 System.out.println("Reservation: " + res);
             }
         }
